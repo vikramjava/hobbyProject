@@ -17,11 +17,11 @@ class BiggestLosers():
         y = requests.get('https://finance.yahoo.com/losers')
         ytext = y.text
 
-        logfile1 = open('/Users/vikjava/Personal/hobby_proj/yahoo_finance/logfile1.txt', 'w')
+        logfile1 = open('/Users/vikjava/Personal/hobbyProject/yahoo_finance/logfile1.txt', 'w')
         pprint(ytext, logfile1)
         logfile1.close()
 
-        stockLstr = re.findall(r'YFINANCE:([A-Z,]+)...fallback', ytext)
+        stockLstr = re.findall(r'YFINANCE:([A-Z,-]+)...fallback', ytext)
         print stockLstr
         stockList = stockLstr[0].split(",")
         self.biggestLosers = stockList
@@ -45,7 +45,7 @@ class BiggestLosers():
 
             if i == "GT":
                 print "Printing to logfile 2"
-                logfile2 = open('/Users/vikjava/Personal/hobby_proj/yahoo_finance/logfile2.txt', 'w')
+                logfile2 = open('/Users/vikjava/Personal/hobbyProject/yahoo_finance/logfile2.txt', 'w')
                 pprint(stext, logfile2)
                 logfile2.close()
 
@@ -86,12 +86,12 @@ if __name__ == "__main__":
 
     check3 = (check2 + list(set(check) - set(check2)))
 
-    logfile3 = open('/Users/vikram/programming/personal/yahoo_finance/logfile3.txt', 'w')
+    logfile3 = open('/Users/vikjava/Personal/hobbyProject/yahoo_finance/logfile3.txt', 'w')
     pprint(check3, logfile3)
     logfile3.close()
 
     # Create a text/plain message
-    logfile3 = open('/Users/vikram/programming/personal/yahoo_finance/logfile3.txt', 'r')
+    logfile3 = open('/Users/vikjava/Personal/hobbyProject/yahoo_finance/logfile3.txt', 'r')
     msg = MIMEText(logfile3.read())
     logfile3.close()
 
